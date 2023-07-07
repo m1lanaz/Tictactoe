@@ -1,10 +1,14 @@
-// When pressed display icon
-
+// When pressed display icon, unless div already has an icon (child node)
 function myFunc(i) {
-    console.log("I've been pressed!");
-    let newCross = document.createElement("i");
-    newCross.classList.add("bi" ,"bi-x-lg"); 
-    boardItem[i].appendChild(newCross);
+    if (boardItem[i].hasChildNodes()) {
+        // boardItem[0] has child nodes
+        console.log("boardItem[0] has child nodes");
+    } else {
+        console.log("I've been pressed!");
+        let newCross = document.createElement("i");
+        newCross.classList.add("bi" ,"bi-x-lg"); 
+        boardItem[i].appendChild(newCross);
+    }    
 };
 
 let boardItem = document.getElementsByClassName('boardItem');
