@@ -66,6 +66,16 @@ function myFunc(i) {
   const currentClass = playersTurn ? 'player' : 'computer';
   boardItem[i].classList.add(currentClass);
 
+  // Create the appropriate icon based on the current player
+  let newIcon = document.createElement("i");
+  if (playersTurn) {
+    newIcon.classList.add("bi", "bi-x");
+  } else {
+    newIcon.classList.add("bi", "bi-circle");
+  }
+
+  boardItem[i].appendChild(newIcon);
+
   const winner = checkWin();
   if (winner) {
     endGame(winner);
